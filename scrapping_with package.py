@@ -13,16 +13,16 @@ result, continuation_token = reviews(
     lang="id",
     country="id",
     sort=Sort.NEWEST,
-    count=100
+    count=1000
 )
 
 # Convert the result into a DataFrame
-df_busu = pd.DataFrame(np.array(result), columns=['review'])
-df_busu = df_busu.join(pd.DataFrame(df_busu.pop('review').tolist()))
+df = pd.DataFrame(np.array(result), columns=['review'])
+df = df.join(pd.DataFrame(df.pop('review').tolist()))
 
 # Saving the DataFrame to SQL
 try:
-    df_busu.to_sql('linkedin_review', con=engine, if_exists='replace', index=False)
+    df.to_sql('linkedin_review', con=engine, if_exists='replace', index=False)
     print("Data has been saved to the database successfully.")
 except Exception as e:
     print("An error occurred:", e)
@@ -30,3 +30,7 @@ except Exception as e:
     # Querying data to confirm
 query_result = pd.read_sql("SELECT * FROM linkedin_review LIMIT 5", con=engine)
 print(query_result)
+
+#saving the Dataframe to  csv file
+df.to_csv('data scraping linkedin.csv', index=False)
+

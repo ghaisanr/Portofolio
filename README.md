@@ -1,10 +1,10 @@
-# Scraping linkedin review in google play with MySQL Integration and Analyze The Result using Word Cloud
+# Scraping a LinkedIn review in Google Play with MySQL Integration and Analyzing the Result Using Word Cloud
 
 This project is a Python script that scrapes reviews from the Google Play Store for a specified app and stores them in a MySQL database. After the scraper, analysis will be carried out using word cloud. It utilizes the `google_play_scraper` library for scraping, `mysql-connector` for database integration, and `wordcloud` for word cloud generation.
 
 ## Features 
 * Scrapes reviews from the Google Play Store for a specified app using `module`
-* Stores review data in a MySQL database with columns using `modul`
+* Stores review data in a MySQL database with columns using `module`
 * Preprocessing data for word cloud generation.
 * Generates a word cloud from the review data.
 
@@ -36,7 +36,7 @@ The script is divided into the following sections:
 * Word Cloud Generation: Uses wordcloud to generate a word cloud from the review data.
 
 ## Usage
-1. Google-play-screper
+1. Google-play-scraper
 ```python
 from google_play_scraper import Sort, reviews
 
@@ -77,8 +77,6 @@ def connect(self):
         except Error as e:
             print("Error while connecting to MySQL:", e)
 ```
-
-3. 
 
 
 3.  Run the script
